@@ -13,7 +13,7 @@ namespace FlightServiceBackEnd
             // Add services to the container.
             builder.Services.AddDbContext<FlightDbContext>(options =>
             {
-                options.UseSqlServer("Data Source=LAPTOP-UI5FPSOQ;Initial Catalog=FlightServiceDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                options.UseSqlServer("Data Source=LAPTOP-UI5FPSOQ;Initial Catalog=FlightServiceDb2;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             });
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

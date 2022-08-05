@@ -4,6 +4,7 @@ using FlightServiceBackEnd.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightServiceBackEnd.Migrations
 {
     [DbContext(typeof(FlightDbContext))]
-    partial class FlightDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220805151926_adding passengers")]
+    partial class addingpassengers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,34 +56,6 @@ namespace FlightServiceBackEnd.Migrations
                     b.HasKey("Flight_Id");
 
                     b.ToTable("Flights");
-                });
-
-            modelBuilder.Entity("FlightServiceBackEnd.Models.Passenger", b =>
-                {
-                    b.Property<int>("Passenger_Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Passenger_Id"), 1L, 1);
-
-                    b.Property<DateTime>("DOB")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FirstMidName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nationality")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Passenger_Id");
-
-                    b.ToTable("Passengers");
                 });
 #pragma warning restore 612, 618
         }

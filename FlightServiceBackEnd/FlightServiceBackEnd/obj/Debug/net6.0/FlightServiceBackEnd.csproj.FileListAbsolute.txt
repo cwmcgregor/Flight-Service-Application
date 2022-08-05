@@ -259,3 +259,5 @@ C:\Users\colin\Documents\SkillStorm\Flight-Service-Application\FlightServiceBack
 C:\Users\colin\Documents\SkillStorm\Flight-Service-Application\FlightServiceBackEnd\FlightServiceBackEnd\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\colin\Documents\SkillStorm\Flight-Service-Application\FlightServiceBackEnd\FlightServiceBackEnd\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\colin\Documents\SkillStorm\Flight-Service-Application\FlightServiceBackEnd\FlightServiceBackEnd\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\colin\Documents\SkillStorm\Flight-Service-Application\FlightServiceBackEnd\FlightServiceBackEnd\obj\Debug\net6.0\FlightServiceBackEnd.RazorAssemblyInfo.cache
+C:\Users\colin\Documents\SkillStorm\Flight-Service-Application\FlightServiceBackEnd\FlightServiceBackEnd\obj\Debug\net6.0\FlightServiceBackEnd.RazorAssemblyInfo.cs

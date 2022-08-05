@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightServiceBackEnd.Migrations
 {
     [DbContext(typeof(FlightDbContext))]
-    [Migration("20220805144357_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20220805152257_adding passengers take 2")]
+    partial class addingpassengerstake2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,10 +46,6 @@ namespace FlightServiceBackEnd.Migrations
                     b.Property<DateTime>("DepartureDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Destination")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("FlightNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -60,6 +56,34 @@ namespace FlightServiceBackEnd.Migrations
                     b.HasKey("Flight_Id");
 
                     b.ToTable("Flights");
+                });
+
+            modelBuilder.Entity("FlightServiceBackEnd.Models.Passenger", b =>
+                {
+                    b.Property<int>("Passenger_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Passenger_Id"), 1L, 1);
+
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstMidName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nationality")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Passenger_Id");
+
+                    b.ToTable("Passengers");
                 });
 #pragma warning restore 612, 618
         }
