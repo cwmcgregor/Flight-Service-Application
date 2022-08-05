@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "MUNF216QdP7YPPmWISJPSyfReX/IWEGYuwGvT5vJBYE=",
+  "Source": "FlightServiceBackEnd",
+  "BasePath": "_content/FlightServiceBackEnd",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
