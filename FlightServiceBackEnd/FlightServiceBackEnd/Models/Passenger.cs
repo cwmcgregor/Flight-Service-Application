@@ -9,6 +9,7 @@ namespace FlightServiceBackEnd.Models
         public string FirstMidName { get; set; }
         public string LastName { get; set; }
         public DateTime DOB { get; set; }
-        public string Nationality { get; set; }
+        public string Job { get; set; }
+        public string Email { get; set; }
     }
 }
