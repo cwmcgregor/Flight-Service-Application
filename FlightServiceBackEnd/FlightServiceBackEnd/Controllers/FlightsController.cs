@@ -33,15 +33,26 @@ namespace FlightServiceBackEnd.Controllers
         }
 
         // GET: api/Flights/Upcoming
-        //[HttpGet("Upcoming")]
-        //public async Task<ActionResult<IEnumerable<Flight>>> GetUpcomingFlights()
-        //{
-        //    if (_context.Flights == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return await _context.Flights.Where(f=>f.DepartureDateTime>DateTime.Now).OrderBy(f=>f.DepartureDateTime).ToListAsync();
-        //}
+        [HttpGet("Upcoming")]
+        public async Task<ActionResult<IEnumerable<Flight>>> GetUpcomingFlights()
+        {
+            if (_context.Flights == null)
+            {
+                return NotFound();
+            }
+            return await _context.Flights.Where(f => f.DepartureDateTime > DateTime.Now).OrderBy(f => f.DepartureDateTime).ToListAsync();
+        }
+
+        // GET: api/Flights/Upcoming
+        [HttpGet("Past")]
+        public async Task<ActionResult<IEnumerable<Flight>>> GetPastFlights()
+        {
+            if (_context.Flights == null)
+            {
+                return NotFound();
+            }
+            return await _context.Flights.Where(f => f.DepartureDateTime < DateTime.Now).OrderBy(f => f.DepartureDateTime).ToListAsync();
+        }
 
         // GET: api/Flights/5
         [HttpGet("{id}")]
@@ -66,7 +77,7 @@ namespace FlightServiceBackEnd.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFlight(int id, Flight flight)
         {
-            if (id != flight.Flight_Id)
+            if (id != flight.Id)
             {
                 return BadRequest();
             }
@@ -104,7 +115,7 @@ namespace FlightServiceBackEnd.Controllers
             _context.Flights.Add(flight);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFlight", new { id = flight.Flight_Id }, flight);
+            return CreatedAtAction("GetFlight", new { id = flight.Id }, flight);
         }
 
         // DELETE: api/Flights/5
@@ -129,7 +140,7 @@ namespace FlightServiceBackEnd.Controllers
 
         private bool FlightExists(int id)
         {
-            return (_context.Flights?.Any(e => e.Flight_Id == id)).GetValueOrDefault();
+            return (_context.Flights?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

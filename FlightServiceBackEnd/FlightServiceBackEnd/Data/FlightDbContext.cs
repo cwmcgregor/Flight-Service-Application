@@ -12,5 +12,6 @@ namespace FlightServiceBackEnd.Data
         }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
+        public DbSet<Resevation> Reservations { get; set; }
     }
 }

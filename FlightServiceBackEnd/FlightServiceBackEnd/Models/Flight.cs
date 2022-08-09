@@ -5,7 +5,7 @@ namespace FlightServiceBackEnd.Models
     public class Flight
     {
         [Key]
-        public int Flight_Id { get; set; }
+        public int Id { get; set; }
         public string FlightNumber { get; set; }
         public DateTime DepartureDateTime { get; set; }
         public DateTime ArrivalDateTime { get; set; }
@@ -13,5 +13,6 @@ namespace FlightServiceBackEnd.Models
         public string ArrivalAirport { get; set; }
         public int MaxCapacity { get; set; }
 
+        public virtual ICollection<Resevation>? Resevations { get; set; }
     }
 }

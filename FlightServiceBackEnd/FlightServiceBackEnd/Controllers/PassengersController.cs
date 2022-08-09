@@ -50,12 +50,26 @@ namespace FlightServiceBackEnd.Controllers
             return passenger;
         }
 
+        // GET: api/Passengers/5/Reservations
+        [HttpGet("{id}/Reservations")]
+        public IQueryable<Flight> GetPassengerReservations(int id)
+        {
+
+            var passengerReservations = from flight in _context.Flights
+                                        join reservation in _context.Reservations on flight.Id equals reservation.FlightId
+                                        where reservation.PassengerId == id
+                                        select flight;
+
+            return passengerReservations;
+
+        }
+
         // PUT: api/Passengers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPassenger(int id, Passenger passenger)
         {
-            if (id != passenger.Passenger_Id)
+            if (id != passenger.Id)
             {
                 return BadRequest();
             }
@@ -93,7 +107,7 @@ namespace FlightServiceBackEnd.Controllers
             _context.Passengers.Add(passenger);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPassenger", new { id = passenger.Passenger_Id }, passenger);
+            return CreatedAtAction("GetPassenger", new { id = passenger.Id }, passenger);
         }
 
         // DELETE: api/Passengers/5
@@ -118,7 +132,7 @@ namespace FlightServiceBackEnd.Controllers
 
         private bool PassengerExists(int id)
         {
-            return (_context.Passengers?.Any(e => e.Passenger_Id == id)).GetValueOrDefault();
+            return (_context.Passengers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
