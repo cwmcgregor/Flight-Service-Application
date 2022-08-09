@@ -32,6 +32,17 @@ namespace FlightServiceBackEnd.Controllers
             return await _context.Flights.ToListAsync();
         }
 
+        // GET: api/Flights/Upcoming
+        //[HttpGet("Upcoming")]
+        //public async Task<ActionResult<IEnumerable<Flight>>> GetUpcomingFlights()
+        //{
+        //    if (_context.Flights == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return await _context.Flights.Where(f=>f.DepartureDateTime>DateTime.Now).OrderBy(f=>f.DepartureDateTime).ToListAsync();
+        //}
+
         // GET: api/Flights/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Flight>> GetFlight(int id)

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightServiceBackEnd.Migrations
 {
     [DbContext(typeof(FlightDbContext))]
-    [Migration("20220805152257_adding passengers take 2")]
-    partial class addingpassengerstake2
+    [Migration("20220809132413_AddingPassengers")]
+    partial class AddingPassengers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,15 +69,19 @@ namespace FlightServiceBackEnd.Migrations
                     b.Property<DateTime>("DOB")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstMidName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Job")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nationality")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

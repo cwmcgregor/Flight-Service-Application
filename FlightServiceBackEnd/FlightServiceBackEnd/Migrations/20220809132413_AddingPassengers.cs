@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace FlightServiceBackEnd.Migrations
 {
-    public partial class addingpassengerstake2 : Migration
+    public partial class AddingPassengers : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +17,9 @@ namespace FlightServiceBackEnd.Migrations
                     FirstMidName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Nationality = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Job = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    
                 },
                 constraints: table =>
                 {
