@@ -12,18 +12,18 @@ namespace FlightServiceBackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ResevationsController : ControllerBase
+    public class ReservationsController : ControllerBase
     {
         private readonly FlightDbContext _context;
 
-        public ResevationsController(FlightDbContext context)
+        public ReservationsController(FlightDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Resevations
+        // GET: api/Reservations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Resevation>>> GetReservations()
+        public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
         {
           if (_context.Reservations == null)
           {
@@ -32,35 +32,35 @@ namespace FlightServiceBackEnd.Controllers
             return await _context.Reservations.ToListAsync();
         }
 
-        // GET: api/Resevations/5
+        // GET: api/Reservations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Resevation>> GetResevation(int id)
+        public async Task<ActionResult<Reservation>> GetReservation(int id)
         {
           if (_context.Reservations == null)
           {
               return NotFound();
           }
-            var resevation = await _context.Reservations.FindAsync(id);
+            var reservation = await _context.Reservations.FindAsync(id);
 
-            if (resevation == null)
+            if (reservation == null)
             {
                 return NotFound();
             }
 
-            return resevation;
+            return reservation;
         }
 
-        // PUT: api/Resevations/5
+        // PUT: api/Reservations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutResevation(int id, Resevation resevation)
+        public async Task<IActionResult> PutReservation(int id, Reservation reservation)
         {
-            if (id != resevation.Id)
+            if (id != reservation.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(resevation).State = EntityState.Modified;
+            _context.Entry(reservation).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +68,7 @@ namespace FlightServiceBackEnd.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ResevationExists(id))
+                if (!ReservationExists(id))
                 {
                     return NotFound();
                 }
@@ -81,42 +81,43 @@ namespace FlightServiceBackEnd.Controllers
             return NoContent();
         }
 
-        // POST: api/Resevations
+        // POST: api/Reservations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Resevation>> PostResevation(Resevation resevation)
+        public async Task<ActionResult<Reservation>> PostReservation(Reservation reservation)
         {
+            
           if (_context.Reservations == null)
           {
               return Problem("Entity set 'FlightDbContext.Reservations'  is null.");
           }
-            _context.Reservations.Add(resevation);
+            _context.Reservations.Add(reservation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetResevation", new { id = resevation.Id }, resevation);
+            return CreatedAtAction("GetReservation", new { id = reservation.Id }, reservation);
         }
 
-        // DELETE: api/Resevations/5
+        // DELETE: api/Reservations/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteResevation(int id)
+        public async Task<IActionResult> DeleteReservation(int id)
         {
             if (_context.Reservations == null)
             {
                 return NotFound();
             }
-            var resevation = await _context.Reservations.FindAsync(id);
-            if (resevation == null)
+            var reservation = await _context.Reservations.FindAsync(id);
+            if (reservation == null)
             {
                 return NotFound();
             }
 
-            _context.Reservations.Remove(resevation);
+            _context.Reservations.Remove(reservation);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool ResevationExists(int id)
+        private bool ReservationExists(int id)
         {
             return (_context.Reservations?.Any(e => e.Id == id)).GetValueOrDefault();
         }

@@ -43,7 +43,7 @@ namespace FlightServiceBackEnd.Controllers
             return await _context.Flights.Where(f => f.DepartureDateTime > DateTime.Now).OrderBy(f => f.DepartureDateTime).ToListAsync();
         }
 
-        // GET: api/Flights/Upcoming
+        // GET: api/Flights/Past
         [HttpGet("Past")]
         public async Task<ActionResult<IEnumerable<Flight>>> GetPastFlights()
         {
@@ -52,6 +52,41 @@ namespace FlightServiceBackEnd.Controllers
                 return NotFound();
             }
             return await _context.Flights.Where(f => f.DepartureDateTime < DateTime.Now).OrderBy(f => f.DepartureDateTime).ToListAsync();
+        }
+
+        // GET: api/Flights/5/Reservations
+        [HttpGet("{id}/Reservations")]
+        public async Task<List<PassengerReservation>> GetPassengerReservations(int id)
+        {
+
+            var flightReservations = from passenger in _context.Passengers
+                                        join reservation in _context.Reservations on passenger.Id equals reservation.PassengerId
+                                        where reservation.FlightId == id
+                                        select new
+                                        {
+                                            reservation.Id,
+                                            passenger.FirstMidName,
+                                            passenger.LastName,
+                                            passenger.DOB,
+                                            passenger.Job,
+                                            passenger.Email
+                                        };
+
+
+            var list = await flightReservations.ToListAsync().ConfigureAwait(false);
+
+            return list.Select(r => new PassengerReservation()
+            {
+                ReservationId=r.Id,
+                FirstMidName=r.FirstMidName,
+                LastName=r.LastName,
+                DOB=r.DOB,
+                Job=r.Job,
+                Email=r.Email
+          
+            }).ToList();
+            ;
+
         }
 
         // GET: api/Flights/5

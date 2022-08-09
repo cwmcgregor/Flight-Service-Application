@@ -12,7 +12,14 @@ namespace FlightServiceBackEnd.Models
         public string DepartureAirport { get; set; }
         public string ArrivalAirport { get; set; }
         public int MaxCapacity { get; set; }
+        public int seatsReserved { get; set; }
 
-        public virtual ICollection<Resevation>? Resevations { get; set; }
+        public virtual ICollection<Reservation>? Resevations { get; set; }
+
+        public Flight()
+        {
+            
+        }
+        
     }
 }

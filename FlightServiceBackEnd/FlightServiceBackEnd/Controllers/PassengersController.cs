@@ -50,17 +50,40 @@ namespace FlightServiceBackEnd.Controllers
             return passenger;
         }
 
+    
+
         // GET: api/Passengers/5/Reservations
         [HttpGet("{id}/Reservations")]
-        public IQueryable<Flight> GetPassengerReservations(int id)
+        public async Task<List<FlightReservation>> GetPassengerReservations(int id)
         {
 
             var passengerReservations = from flight in _context.Flights
                                         join reservation in _context.Reservations on flight.Id equals reservation.FlightId
                                         where reservation.PassengerId == id
-                                        select flight;
+                                        select new
+                                        {
+                                            reservation.Id,
+                                            flight.FlightNumber,
+                                            flight.DepartureAirport,
+                                            flight.DepartureDateTime,
+                                            flight.ArrivalAirport,
+                                            flight.ArrivalDateTime
+                                          
+                                        };
+                                           
+                                                
+            var list=await passengerReservations.ToListAsync().ConfigureAwait(false);
 
-            return passengerReservations;
+            return list.Select(r => new FlightReservation()
+            {
+                reservationID=r.Id,
+                flightNumber=r.FlightNumber,
+                departureAirport=r.DepartureAirport,
+                departureDateTime=r.DepartureDateTime,
+                arrivalAirport=r.ArrivalAirport,
+                arrivalDateTime=r.ArrivalDateTime
+            }).ToList();
+            ;
 
         }
 

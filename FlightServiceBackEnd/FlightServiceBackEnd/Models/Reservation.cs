@@ -2,7 +2,7 @@
 
 namespace FlightServiceBackEnd.Models
 {
-    public class Resevation
+    public class Reservation
     {
         [Key]
         public int Id { get; set; }
