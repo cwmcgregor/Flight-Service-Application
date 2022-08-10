@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FlightListComponent } from './flight-list/flight-list.component';
+import { FlightsComponent } from './components/flights/flights.component';
+import { FlightDetailComponent } from './components/flight-detail/flight-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FlightListComponent
+    FlightsComponent,
+    FlightDetailComponent
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
