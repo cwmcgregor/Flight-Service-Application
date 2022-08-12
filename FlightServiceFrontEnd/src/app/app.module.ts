@@ -10,11 +10,13 @@ import { FlightDetailComponent } from './components/flight-detail/flight-detail.
 import { HomeComponent } from './components/home/home.component';
 import { AddFlightComponent } from './components/add-flight/add-flight.component';
 import { FlightModule } from './modules/flight/flight.module';
+import { EditFlightComponent } from './components/edit-flight/edit-flight.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-   HomeComponent
+   HomeComponent,
+   EditFlightComponent
    
   ],
   imports: [

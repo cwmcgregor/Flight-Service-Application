@@ -8,7 +8,8 @@
     <div>Max Capacity: {{flight.maxCapacity}}</div>
     <div>Seats Booked: {{flight.seatsReserved}}</div>
 
-    <a routerLink="/flights/{{flight.id}}/edit"><button>Edit Flight Info</button></a>
+    <a routerLink="/edit/flight/{{flight.id}}"><button>Edit Flight Info</button></a>
+    <button (click)="deleteFlight()">Delete Flight</button>
   </div>
 
   
