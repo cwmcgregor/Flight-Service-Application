@@ -9,7 +9,19 @@ namespace FlightServiceBackEnd
     {
         public static void Main(string[] args)
         {
+            
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin();
+                        policy.AllowAnyMethod();
+                        policy.AllowAnyHeader();
+                    });
+            });
 
             // Add services to the container.
             builder.Services.AddDbContext<FlightDbContext>(options =>
@@ -21,6 +33,7 @@ namespace FlightServiceBackEnd
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+      
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -31,6 +44,8 @@ namespace FlightServiceBackEnd
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 

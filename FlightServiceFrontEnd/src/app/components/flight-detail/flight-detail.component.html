@@ -1,9 +1,14 @@
 <div *ngIf="flight">
+    <h2>{{flight.id}}</h2>
     <h2>{{flight.flightNumber}} Details</h2>
-    <div>Departure Airport: {{flight.DepartureAirport}}</div>
-    <div>Departure Date/Time: {{flight.DepartureDateTime}}</div>
-    <div>Arrival Airport: {{flight.ArrivalAirport}}</div>
-    <div>Arrival Date/Time: {{flight.ArrivalDateTime}}</div>
-    <div>Max Capacity: {{flight.MaxCapacity}}</div>
+    <div>Departure Airport: {{flight.departureAirport}}</div>
+    <div>Departure Date/Time: {{flight.departureDateTime}}</div>
+    <div>Arrival Airport: {{flight.arrivalAirport}}</div>
+    <div>Arrival Date/Time: {{flight.arrivalDateTime}}</div>
+    <div>Max Capacity: {{flight.maxCapacity}}</div>
     <div>Seats Booked: {{flight.seatsReserved}}</div>
+
+    <a routerLink="/flights/{{flight.id}}/edit"><button>Edit Flight Info</button></a>
   </div>
+
+  

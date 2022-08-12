@@ -1,10 +1,30 @@
 <h2>All Flights</h2>
 <ul class="flights">
-  <li *ngFor="let flight of flights">
-    <button type="button" (click)="onSelect(flight)">
-      <span class="badge">{{flight.flightNumber}}</span>
-      <span class="name"> {{flight.ArrivalAirport}}</span>
-    </button>
-  </li>
-</ul>
-<app-flight-detail [flight]="selectedFlight"></app-flight-detail>
+  <table *ngFor="let flight of flights">
+    <thead>
+      <th>Flight ID</th>
+      <th>Flight Number</th>
+      <th>Departure Airport</th>
+      <th>Departure Date/Time</th>
+      <th>Arrival Airport</th>
+      <th>Arrival Date/Time</th>
+      <th>Max Capacity</th>
+      <th>Seats Reserved</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a routerLink="/flights/{{flight.id}}"><button>{{flight.id}}</button></a>
+  </td>
+  <td>{{flight.flightNumber}}</td>
+  <td>{{flight.departureAirport}}</td>
+  <td>{{flight.departureDateTime}}</td>
+  <td>{{flight.arrivalAirport}}</td>
+  <td>{{flight.arrivalDateTime}}</td>
+  <td>{{flight.maxCapacity}}</td>
+  <td>{{flight.seatsReserved}}</td>
+  </tr>
+  </tbody>
+  </table>
+
+  

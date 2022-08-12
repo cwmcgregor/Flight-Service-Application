@@ -17,9 +17,7 @@ export class FlightsComponent implements OnInit {
 
   flights:Flight[]=[];
   selectedFlight?: Flight;
-  onSelect(flight:Flight):void{
-    this.selectedFlight=flight;
-  }
+
     getAllFlights():void{
       this.flightService.getAllFlights().subscribe(flights=>this.flights=flights);
     }

@@ -1,11 +1,11 @@
 export interface Flight {
     id: number;
     flightNumber: string;
-    DepartureAirport:string;
-    DepartureDateTime: Date;
-    ArrivalAirport:string;
-    ArrivalDateTime:Date;
-    MaxCapacity:number;
+    departureAirport:string;
+    departureDateTime: Date;
+    arrivalAirport:string;
+    arrivalDateTime:Date;
+    maxCapacity:number;
     seatsReserved:number;
     
   }

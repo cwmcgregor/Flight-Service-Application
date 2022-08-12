@@ -1,0 +1,49 @@
+<div class="container">
+<h1>Add A New Flight</h1>
+<form [formGroup]="addFlightForm" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="flightNumber">Flight Number</label>
+        <input type="text" class="form-control" id="flightNumber" formControlName="flightNumber" />
+        <div *ngIf="f['flightNumber'].touched && f['flightNumber'].invalid" class="alert alert-danger">
+            <div *ngIf="f['flightNumber'].errors f['flightNumber'].errors['required']">Flight Number is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="departureAirport">Departure Airport</label>
+        <input type="text" class="form-control" id="departureAirport" formControlName="departureAirport" />
+        <div *ngIf="f['departureAirport'].touched && f['departureAirport'].invalid" class="alert alert-danger">
+            <div *ngIf="f['departureAirport'].errors f['departureAirport'].errors['required']">Departure Airport is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="departureDateTime">Departure Date/Time</label>
+        <input type="text" placeholder="" class="form-control" id="departureDateTime" formControlName="departureDateTime" />
+        <div *ngIf="f['departureDateTime'].touched && f['departureDateTime'].invalid" class="alert alert-danger">
+            <div *ngIf="f['departureDateTime'].errors f['departureDateTime'].errors['required']">Departure Date/Time is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="arrivalAirport">Arrival Airport</label>
+        <input type="text" class="form-control" id="arrivalAirport" formControlName="arrivalAirport" />
+        <div *ngIf="f['arrivalAirport'].touched && f['arrivalAirport'].invalid" class="alert alert-danger">
+            <div *ngIf="f['arrivalAirport'].errors f['arrivalAirport'].errors['required']">Arrival Airport is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="arrivalDateTime">Arrival Date/Time</label>
+        <input type="text" class="form-control" id="arrivalDateTime" formControlName="arrivalDateTime" />
+        <div *ngIf="f['arrivalDateTime'].touched && f['arrivalDateTime'].invalid" class="alert alert-danger">
+            <div *ngIf="f['arrivalDateTime'].errors f['arrivalDateTime'].errors['required']">Arrival Date/Time is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="maxCapacity">Max Capacity</label>
+        <input type="text" class="form-control" id="maxCapacity" formControlName="maxCapacity" />
+        <div *ngIf="f['maxCapacity'].touched && f['maxCapacity'].invalid" class="alert alert-danger">
+            <div *ngIf="f['maxCapacity'].errors f['maxCapacity'].errors['required']">Max Capacity is required.</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!addFlightForm.valid">Submit</button>
+
+</form>
+</div>
