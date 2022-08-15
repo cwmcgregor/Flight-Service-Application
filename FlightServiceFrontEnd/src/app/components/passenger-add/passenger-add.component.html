@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Add A New Passenger</h1>
+    <form [formGroup]="addPassengerForm" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="firstMidName">First and Middle Name</label>
+            <input type="text" class="form-control" id="firstMidName" formControlName="firstMidName" />
+            <div *ngIf="f['firstMidName'].touched && f['firstMidName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['firstMidName'].errors f['firstMidName'].errors['required']">First Name is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName" />
+            <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['lastName'].errors f['lastName'].errors['required']">Last Name is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="text" placeholder="" class="form-control" id="dob" formControlName="dob" />
+            <div *ngIf="f['dob'].touched && f['dob'].invalid" class="alert alert-danger">
+                <div *ngIf="f['dob'].errors f['dob'].errors['required']">Date of Birth is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="job">Profession</label>
+            <input type="text" class="form-control" id="job" formControlName="job" />
+            <div *ngIf="f['job'].touched && f['job'].invalid" class="alert alert-danger">
+                <div *ngIf="f['job'].errors f['job'].errors['required']">Profession is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" formControlName="email" />
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                <div *ngIf="f['email'].errors f['email'].errors['required']">Email is required.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!addPassengerForm.valid">Submit</button>
+    
+    </form>
+    </div>

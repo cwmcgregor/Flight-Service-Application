@@ -14,7 +14,7 @@ namespace FlightServiceBackEnd.Models
         public int MaxCapacity { get; set; }
         public int seatsReserved { get; set; }
 
-        public virtual ICollection<Reservation>? Resevations { get; set; }
+        
 
         public Flight()
         {

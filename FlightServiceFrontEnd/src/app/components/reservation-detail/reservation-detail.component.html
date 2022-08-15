@@ -1,0 +1,21 @@
+<h1 *ngIf="reservation"> Reservation Details {{reservation.flightId}}{{reservation.passengerId}}</h1>
+<div *ngIf="flight">
+<h2 >Flight Information</h2>
+    <div>Flight ID: {{flight.id}}</div>
+    <div>Flight Number: {{flight.flightNumber}}</div>
+    <div>Departure Airport: {{flight.departureAirport}}</div>
+    <div>Departure Date/Time: {{flight.departureDateTime}}</div>
+    <div>Arrival Airport: {{flight.arrivalAirport}}</div>
+    <div>Arrival Date/Time: {{flight.arrivalDateTime}}</div>
+    <div>Max Capacity: {{flight.maxCapacity}}</div>
+    <div>Seats Booked: {{flight.seatsReserved}}</div>
+</div>
+<div *ngIf="passenger">
+    <h2>Passenger Information</h2>
+     <div>Passenger ID: {{passenger.id}}</div>
+     <div>First and Middle Name: {{passenger.firstMidName}}</div>
+     <div>Last Name: {{passenger.lastName}}</div>
+     <div>Date of Birth: {{passenger.dob}}</div>
+     <div>Profession: {{passenger.job}}</div>
+     <div>Email: {{passenger.email}}</div>
+   </div>

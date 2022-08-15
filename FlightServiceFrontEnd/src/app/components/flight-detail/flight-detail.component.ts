@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { Flight } from 'src/app/models/flight';
 import { FlightService } from 'src/app/services/flight.service';
+import { PassengerReservation } from 'src/app/models/passengerReservation';
 
 
 @Component({
@@ -14,10 +15,12 @@ import { FlightService } from 'src/app/services/flight.service';
 export class FlightDetailComponent implements OnInit {
 
   @Input() flight?: Flight;
+  passengers:PassengerReservation[]=[];
   constructor(private route: ActivatedRoute, private flightService: FlightService, private location:Location, private router:Router) { }
 
   ngOnInit(): void {
     this.getFlight();
+    this.getFlightsPassengers();
   }
 
   getFlight():void{
@@ -31,6 +34,11 @@ export class FlightDetailComponent implements OnInit {
       console.log(res);
       this.router.navigate(['/flights']);
     }})
+  }
+
+  getFlightsPassengers():void{
+    const id=Number(this.route.snapshot.paramMap.get('id'));
+    this.flightService.getFlightsPassengers(id).subscribe(passenger=>this.passengers=passenger)
   }
   
 }

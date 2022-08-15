@@ -12,6 +12,5 @@ namespace FlightServiceBackEnd.Models
         public string Job { get; set; }
         public string Email { get; set; }
 
-        public virtual ICollection<Reservation>? Resevations { get; set; }
     }
 }

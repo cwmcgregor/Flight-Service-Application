@@ -22,14 +22,48 @@ namespace FlightServiceBackEnd.Controllers
         }
 
         // GET: api/Reservations
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
+        //{
+        //  if (_context.Reservations == null)
+        //  {
+        //      return NotFound();
+        //  }
+        //    return await _context.Reservations.ToListAsync();
+        //}
+
+        // GET: api/Reservations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
+        public async Task<List<ReservationList>> GetReservationsList()
         {
-          if (_context.Reservations == null)
-          {
-              return NotFound();
-          }
-            return await _context.Reservations.ToListAsync();
+            var resList = from reservation in _context.Reservations
+                          join passenger in _context.Passengers on reservation.PassengerId equals passenger.Id
+                          join flight in _context.Flights on reservation.FlightId equals flight.Id
+                          select new
+                          {
+                              reservation.Id,
+                              passenger.FirstMidName,
+                              passenger.LastName,
+                              flight.FlightNumber,
+                              flight.DepartureAirport,
+                              flight.DepartureDateTime,
+                              flight.ArrivalAirport,
+                              flight.ArrivalDateTime
+                          };
+
+            var list=await resList.ToListAsync().ConfigureAwait(false);
+
+            return list.Select(r=> new ReservationList()
+            {
+                Id=r.Id,
+                FirstMidName=r.FirstMidName,
+                LastName=r.LastName,
+                FlightNumber=r.FlightNumber,
+                DepartureAirport=r.DepartureAirport,
+                DepartureDateTime=r.DepartureDateTime,
+                ArrivalAirport=r.ArrivalAirport,
+                ArrivalDateTime=r.ArrivalDateTime
+            }).ToList();
         }
 
         // GET: api/Reservations/5

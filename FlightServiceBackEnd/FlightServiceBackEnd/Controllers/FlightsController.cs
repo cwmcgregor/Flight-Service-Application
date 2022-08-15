@@ -32,6 +32,17 @@ namespace FlightServiceBackEnd.Controllers
             return await _context.Flights.ToListAsync();
         }
 
+        // GET: api/Flights/Available
+        [HttpGet("Available")]
+        public async Task<ActionResult<IEnumerable<Flight>>> GetAvailableFlights()
+        {
+            if (_context.Flights == null)
+            {
+                return NotFound();
+            }
+            return await _context.Flights.Where(f => f.seatsReserved < f.MaxCapacity).Where(f => f.DepartureDateTime > DateTime.Now).ToListAsync();
+        }
+
         // GET: api/Flights/Upcoming
         [HttpGet("Upcoming")]
         public async Task<ActionResult<IEnumerable<Flight>>> GetUpcomingFlights()

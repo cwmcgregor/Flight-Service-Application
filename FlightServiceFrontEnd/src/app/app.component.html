@@ -1,7 +1,11 @@
 
 <nav>
     <h1>{{title}}</h1>
+    <a routerLink="/">Home</a>
     <a routerLink="/flights">Flights</a>
+    <a routerLink="/passengers">Passengers</a>
+    <a routerLink="/reservations">Reservations</a>
+    
 </nav>
 <router-outlet></router-outlet>
 <p>{{time | date:"MMM dd YYYY- hh:mm:ss a"}}</p>

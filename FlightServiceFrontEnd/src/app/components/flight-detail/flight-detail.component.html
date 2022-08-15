@@ -1,6 +1,8 @@
 <div *ngIf="flight">
-    <h2>{{flight.id}}</h2>
-    <h2>{{flight.flightNumber}} Details</h2>
+    
+   <h2>Flight Information</h2>
+    <div>Flight ID: {{flight.id}}</div>
+    <div>Flight Number: {{flight.flightNumber}}</div>
     <div>Departure Airport: {{flight.departureAirport}}</div>
     <div>Departure Date/Time: {{flight.departureDateTime}}</div>
     <div>Arrival Airport: {{flight.arrivalAirport}}</div>
@@ -10,6 +12,29 @@
 
     <a routerLink="/edit/flight/{{flight.id}}"><button>Edit Flight Info</button></a>
     <button (click)="deleteFlight()">Delete Flight</button>
+  </div>
+<h2>Current Reservations</h2>
+  <div *ngIf="passengers">
+    <table *ngFor="let passenger of passengers">
+      <thead>
+        <th>Reservation ID</th>
+        <th>First and Middle Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Profession</th>
+        <th>Email</th>
+      </thead>
+      <tbody>
+        <tr >
+          <td>{{passenger.reservationId}}</td>
+          <td>{{passenger.firstMidName}}</td>
+          <td>{{passenger.lastName}}</td>
+          <td>{{passenger.dob}}</td>
+          <td>{{passenger.job}}</td>
+          <td>{{passenger.email}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   

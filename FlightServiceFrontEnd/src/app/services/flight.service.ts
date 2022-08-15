@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs';
 
 import { Flight } from '../models/flight';
+import { PassengerReservation } from '../models/passengerReservation';
 
 
 @Injectable({
@@ -25,6 +26,11 @@ export class FlightService {
     return this.http.get<Flight[]>(this.flightsUrl, this.httpOptions);
   }
 
+  getAvailableFlights():Observable<Flight[]>{
+    const url=`${this.flightsUrl}/Available`
+    return this.http.get<Flight[]>(url, this.httpOptions);
+  }
+
   getFlight(id:number):Observable<Flight>{
     const url=`${this.flightsUrl}/${id}`;
     return this.http.get<Flight>(url, this.httpOptions);
@@ -41,6 +47,10 @@ export class FlightService {
 
   deleteFlight(id:number): Observable<Flight>{
     return this.http.delete<Flight>(`${this.flightsUrl}/${id}`, this.httpOptions)
+  }
+
+  getFlightsPassengers(id:number):Observable<PassengerReservation[]>{
+    return this.http.get<PassengerReservation[]>(`${this.flightsUrl}/${id}/Reservations`)
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

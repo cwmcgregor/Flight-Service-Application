@@ -1,0 +1,36 @@
+<div *ngIf="passenger">
+    
+    <h2>Passenger Information</h2>
+     <div>Passenger ID: {{passenger.id}}</div>
+     <div>First and Middle Name: {{passenger.firstMidName}}</div>
+     <div>Last Name: {{passenger.lastName}}</div>
+     <div>Date of Birth: {{passenger.dob}}</div>
+     <div>Profession: {{passenger.job}}</div>
+     <div>Email: {{passenger.email}}</div>
+ 
+     <a routerLink="/edit/passenger/{{passenger.id}}"><button>Edit Passenger Info</button></a>
+     <button (click)="deletePassenger()">Delete Passenger</button>
+   </div>
+   <h2>Reservations Made</h2>
+  <div *ngIf="flights">
+    <table *ngFor="let flight of flights">
+      <thead>
+        <th>Reservation ID</th>
+        <th>Flight Number</th>
+        <th>Departure Airport</th>
+        <th>Departure Date/Time</th>
+        <th>Arrival Airport</th>
+        <th>Arrival Date/Time</th>
+      </thead>
+      <tbody>
+        <tr >
+          <td>{{flight.reservationID}}</td>
+          <td>{{flight.flightNumber}}</td>
+          <td>{{flight.departureAirport}}</td>
+          <td>{{flight.departureDateTime}}</td>
+          <td>{{flight.arrivalAirport}}</td>
+          <td>{{flight.arrivalDateTime}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

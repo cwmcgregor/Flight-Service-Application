@@ -1,0 +1,34 @@
+<h2>All Reservations</h2>
+<a routerLink='/add/reservation'><button>Add A New Reservation</button></a>
+<ul class="reservations">
+  <table *ngFor="let reservation of reservations">
+    <thead>
+      <th>Reservation ID</th>
+      <th>Passenger Name</th>
+      <th>Flight Number</th>
+      <th>Departure Airport</th>
+      <th>Departure Date/Time</th>
+      <th>Arrival Airport</th>
+      <th>Arrival Date/Time</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a routerLink="/reservations/{{reservation.id}}"><button>{{reservation.id}}</button></a>
+  </td>
+  <td>{{reservation.firstMidName}} {{reservation.lastName}}</td>
+  <td>{{reservation.flightNumber}}</td>
+  <td>{{reservation.departureAirport}}</td>
+  <td>{{reservation.departureDateTime}}</td>
+  <td>{{reservation.arrivalAirport}}</td>
+  <td>{{reservation.arrivalDateTime}}</td>
+  <td>
+    
+    <button (click)="deleteReservation(reservation.id)">Delete</button>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+
+  

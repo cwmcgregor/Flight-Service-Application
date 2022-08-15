@@ -11,6 +11,7 @@
       <th>Arrival Date/Time</th>
       <th>Max Capacity</th>
       <th>Seats Reserved</th>
+      <th></th>
     </thead>
     <tbody>
       <tr>
@@ -24,6 +25,10 @@
   <td>{{flight.arrivalDateTime}}</td>
   <td>{{flight.maxCapacity}}</td>
   <td>{{flight.seatsReserved}}</td>
+  <td>
+    <a routerLink="/edit/flight/{{flight.id}}"><button>Edit</button></a>
+    <button (click)="deleteFlight(flight.id)">Delete</button>
+  </td>
   </tr>
   </tbody>
   </table>

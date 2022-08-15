@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Flight } from 'src/app/models/flight';
 import { FlightService } from 'src/app/services/flight.service';
 
@@ -9,7 +11,7 @@ import { FlightService } from 'src/app/services/flight.service';
 })
 export class FlightsComponent implements OnInit {
 
-  constructor(private flightService:FlightService) { }
+  constructor(private flightService:FlightService, private router:Router) { }
 
   ngOnInit(): void {
     this.getAllFlights();
@@ -20,6 +22,14 @@ export class FlightsComponent implements OnInit {
 
     getAllFlights():void{
       this.flightService.getAllFlights().subscribe(flights=>this.flights=flights);
+    }
+
+    deleteFlight(id:number):void{
+    
+      this.flightService.deleteFlight(id).subscribe({next:(res)=>{
+        console.log(res);
+        this.router.navigate(['/flights']);
+      }})
     }
   
 }
