@@ -65,7 +65,7 @@ selectedFlight?:Flight;
       
  
     
-      this.router.navigateByUrl('reservations/')
+      this.router.navigateByUrl('/reservations')
     })
   }
   }

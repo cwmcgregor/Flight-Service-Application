@@ -1,7 +1,7 @@
-<h2>All Passengers</h2>
-<a routerLink='/add/passenger'><button>Add A New Passenger</button></a>
+<h1>All Passengers</h1>
+<a routerLink='/add/passenger'><button id="add">+ Add A New Passenger</button></a>
 <ul class="passengers">
-  <table *ngFor="let passenger of passengers">
+  <table >
     <thead>
       <th>Passenger ID</th>
       <th>First and Middle Name</th>
@@ -11,19 +11,19 @@
       <th>Email</th>
       <th></th>
     </thead>
-    <tbody>
+    <tbody *ngFor="let passenger of passengers">
       <tr>
-        <td>
-          <a routerLink="/passengers/{{passenger.id}}"><button>{{passenger.id}}</button></a>
+        <td class="centerColumns">
+          <a routerLink="/passengers/{{passenger.id}}"><button class="idButton">{{passenger.id}}</button></a>
   </td>
   <td>{{passenger.firstMidName}}</td>
   <td>{{passenger.lastName}}</td>
-  <td>{{passenger.dob}}</td>
+  <td>{{passenger.dob | date:'shortDate'}}</td>
   <td>{{passenger.job}}</td>
   <td>{{passenger.email}}</td>
-  <td>
-    <a routerLink="/edit/passenger/{{passenger.id}}"><button>Edit</button></a>
-    <button (click)="deletePassenger(passenger.id)">Delete</button>
+  <td class="centerColumns">
+    <a routerLink="/edit/passenger/{{passenger.id}}"><button id="edit">Edit</button></a>
+    <button (click)="deletePassenger(passenger.id)" id="delete">Delete</button>
   </td>
   </tr>
   </tbody>

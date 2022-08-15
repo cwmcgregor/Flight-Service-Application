@@ -1,0 +1,31 @@
+table, th, td {
+    border: 1px solid;
+    
+  }
+
+  table {
+    width: 96%;
+    
+    
+  }
+  th{
+    background-color: indigo;
+    color: aliceblue;
+  }
+
+  td{
+    background-color: aliceblue;
+    color: indigo;
+  }
+
+ 
+  #add{
+    margin-left: 40px;
+    width: 250px;
+    background-color:rgb(63, 252, 0);
+    font-size: large;
+  }
+  h1{
+    margin-left: 40px;
+    color: indigo;
+  }

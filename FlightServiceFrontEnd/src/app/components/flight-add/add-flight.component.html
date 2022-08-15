@@ -17,7 +17,7 @@
     </div>
     <div class="form-group">
         <label for="departureDateTime">Departure Date/Time</label>
-        <input type="text" placeholder="" class="form-control" id="departureDateTime" formControlName="departureDateTime" />
+        <input type="datetime-local" class="form-control" id="departureDateTime" formControlName="departureDateTime" />
         <div *ngIf="f['departureDateTime'].touched && f['departureDateTime'].invalid" class="alert alert-danger">
             <div *ngIf="f['departureDateTime'].errors f['departureDateTime'].errors['required']">Departure Date/Time is required.</div>
         </div>
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <label for="arrivalDateTime">Arrival Date/Time</label>
-        <input type="text" class="form-control" id="arrivalDateTime" formControlName="arrivalDateTime" />
+        <input type="datetime-local" class="form-control" id="arrivalDateTime" formControlName="arrivalDateTime" />
         <div *ngIf="f['arrivalDateTime'].touched && f['arrivalDateTime'].invalid" class="alert alert-danger">
             <div *ngIf="f['arrivalDateTime'].errors f['arrivalDateTime'].errors['required']">Arrival Date/Time is required.</div>
         </div>

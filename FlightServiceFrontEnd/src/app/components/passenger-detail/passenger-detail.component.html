@@ -4,7 +4,7 @@
      <div>Passenger ID: {{passenger.id}}</div>
      <div>First and Middle Name: {{passenger.firstMidName}}</div>
      <div>Last Name: {{passenger.lastName}}</div>
-     <div>Date of Birth: {{passenger.dob}}</div>
+     <div>Date of Birth: {{passenger.dob| date:'shortDate'}}</div>
      <div>Profession: {{passenger.job}}</div>
      <div>Email: {{passenger.email}}</div>
  
@@ -27,9 +27,9 @@
           <td>{{flight.reservationID}}</td>
           <td>{{flight.flightNumber}}</td>
           <td>{{flight.departureAirport}}</td>
-          <td>{{flight.departureDateTime}}</td>
+          <td>{{flight.departureDateTime| date:'short'}}</td>
           <td>{{flight.arrivalAirport}}</td>
-          <td>{{flight.arrivalDateTime}}</td>
+          <td>{{flight.arrivalDateTime| date:'short'}}</td>
         </tr>
       </tbody>
     </table>

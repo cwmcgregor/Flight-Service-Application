@@ -1,7 +1,7 @@
-<h2>All Flights</h2>
-<a routerLink='/add/flight'><button>Add A New Flight</button></a>
+<h1>All Flights</h1>
+<a routerLink='/add/flight'><button id="add">+ Add A New Flight</button></a>
 <ul class="flights">
-  <table *ngFor="let flight of flights">
+  <table >
     <thead>
       <th>Flight ID</th>
       <th>Flight Number</th>
@@ -13,21 +13,21 @@
       <th>Seats Reserved</th>
       <th></th>
     </thead>
-    <tbody>
+    <tbody *ngFor="let flight of flights">
       <tr>
-        <td>
-          <a routerLink="/flights/{{flight.id}}"><button>{{flight.id}}</button></a>
+        <td class="centerColumns">
+          <a routerLink="/flights/{{flight.id}}"><button class="idButton">{{flight.id}}</button></a>
   </td>
   <td>{{flight.flightNumber}}</td>
   <td>{{flight.departureAirport}}</td>
-  <td>{{flight.departureDateTime}}</td>
+  <td>{{flight.departureDateTime | date:'short'}}</td>
   <td>{{flight.arrivalAirport}}</td>
-  <td>{{flight.arrivalDateTime}}</td>
+  <td>{{flight.arrivalDateTime | date:'short'}}</td>
   <td>{{flight.maxCapacity}}</td>
   <td>{{flight.seatsReserved}}</td>
-  <td>
-    <a routerLink="/edit/flight/{{flight.id}}"><button>Edit</button></a>
-    <button (click)="deleteFlight(flight.id)">Delete</button>
+  <td class="centerColumns">
+    <a routerLink="/edit/flight/{{flight.id}}"><button class="options" id="edit">Edit</button></a>
+    <button (click)="deleteFlight(flight.id)" class="options" id="delete">Delete</button>
   </td>
   </tr>
   </tbody>

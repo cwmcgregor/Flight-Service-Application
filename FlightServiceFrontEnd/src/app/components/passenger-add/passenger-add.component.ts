@@ -32,7 +32,7 @@ export class PassengerAddComponent implements OnInit {
       console.log(this.addPassengerForm.value);
       console.log(this.addPassengerForm.valid);
       console.log("Passenger created");
-      this.router.navigateByUrl('passengers/')
+      this.router.navigateByUrl('/passengers')
     });
   }
 }

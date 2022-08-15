@@ -34,7 +34,7 @@ export class AddFlightComponent implements OnInit {
       console.log(this.addFlightForm.value);
       console.log(this.addFlightForm.valid);
       console.log("Flight created");
-      this.router.navigateByUrl('flights/')
+      this.router.navigateByUrl('/flights')
     });
   }
 }

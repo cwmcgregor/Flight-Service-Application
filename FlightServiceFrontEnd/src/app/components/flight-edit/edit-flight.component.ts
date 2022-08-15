@@ -46,7 +46,7 @@ export class EditFlightComponent implements OnInit {
       console.log(this.editFlightForm.value);
       console.log(this.editFlightForm.valid);
       console.log("Flight modified");
-      this.router.navigateByUrl('flights/')
+      this.router.navigateByUrl('/flights')
     });
   }
 

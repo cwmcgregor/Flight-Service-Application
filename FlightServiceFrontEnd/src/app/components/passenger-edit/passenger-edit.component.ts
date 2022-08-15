@@ -44,7 +44,7 @@ export class PassengerEditComponent implements OnInit {
       console.log(this.editPassengerForm.value);
       console.log(this.editPassengerForm.valid);
       console.log("Passenger modified");
-      this.router.navigateByUrl('passengers/')
+      this.router.navigateByUrl('/passengers')
     });
   }
 

@@ -1,11 +1,14 @@
 
 <nav>
+   <img src="../assets/PngItem_811989.png" alt="">
     <h1>{{title}}</h1>
-    <a routerLink="/">Home</a>
-    <a routerLink="/flights">Flights</a>
-    <a routerLink="/passengers">Passengers</a>
-    <a routerLink="/reservations">Reservations</a>
-    
+    <div class="links">
+        <a routerLink="/">Home</a>
+        <a routerLink="/flights">Flights</a>
+        <a routerLink="/passengers">Passengers</a>
+        <a routerLink="/reservations">Reservations</a>
+    </div>
+    <p>{{time | date:"MMM dd YYYY- hh:mm:ss a"}}</p>
 </nav>
 <router-outlet></router-outlet>
-<p>{{time | date:"MMM dd YYYY- hh:mm:ss a"}}</p>
+
