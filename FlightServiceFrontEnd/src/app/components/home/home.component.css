@@ -1,4 +1,28 @@
 img {
     width: 100%;
-    height: 25vh;
+    height: 29.5vh;
+}
+#container{
+    display: grid;
+    background-color: aliceblue;
+}
+#passengers{
+    justify-self: end;
+}
+#reservations{
+    justify-self: start;
+}
+#flightsContainer{
+    display: flex;
+}
+#flightOptions{
+display: grid;
+justify-items: center;
+align-items: flex-start;
+width: 400px;
+font-size: larger;
+}
+
+#flightOptions a{
+    border-bottom: 2px solid;
 }
