@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -16,7 +16,7 @@ export class FlightDetailComponent implements OnInit {
 
   @Input() flight?: Flight;
   passengers:PassengerReservation[]=[];
-  constructor(private route: ActivatedRoute, private flightService: FlightService, private location:Location, private router:Router) { }
+  constructor(private route: ActivatedRoute, private flightService: FlightService, private location:Location, private router:Router, private changeDetector:ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getFlight();
@@ -32,8 +32,8 @@ export class FlightDetailComponent implements OnInit {
     const id=Number(this.route.snapshot.paramMap.get('id'));
     this.flightService.deleteFlight(id).subscribe({next:(res)=>{
       console.log(res);
-      this.router.navigate(['/flights']);
-    }})
+      this.router.navigate(['/flights'])
+  }})
   }
 
   getFlightsPassengers():void{

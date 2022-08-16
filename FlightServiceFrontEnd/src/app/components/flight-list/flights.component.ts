@@ -28,7 +28,9 @@ export class FlightsComponent implements OnInit {
     
       this.flightService.deleteFlight(id).subscribe({next:(res)=>{
         console.log(res);
-        this.router.navigate(['/flights']);
+        this.router.navigate(['/flights']).then(() => {
+          location.reload();
+      });
       }})
     }
   

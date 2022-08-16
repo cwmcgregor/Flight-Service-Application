@@ -28,7 +28,9 @@ export class PassengersComponent implements OnInit {
     
       this.passengerService.deletePassenger(id).subscribe({next:(res)=>{
         console.log(res);
-        this.router.navigate(['/passengers']);
+        this.router.navigate(['/passengers']).then(() => {
+          location.reload();
+      });
       }})
     }
   
