@@ -4,8 +4,8 @@ table, th, td {
   }
 
   table {
-    width: 96%;
-    
+    width: 90%;
+    margin-left: 5%;
     
   }
   th{
@@ -36,12 +36,13 @@ table, th, td {
     text-align: center;
   }
   #add{
-    margin-left: 40px;
+    margin-left: 5%;
+    margin-bottom: 5px;
     width: 200px;
     background-color:rgb(63, 252, 0);
     font-size: large;
   }
   h1{
-    margin-left: 40px;
+    margin-left: 5%;
     color: indigo;
   }

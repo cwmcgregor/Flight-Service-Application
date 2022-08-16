@@ -1,0 +1,47 @@
+table, th, td {
+    border: 1px solid;
+    
+  }
+
+  table {
+    width: 90%;
+    margin-left: 5%;
+    
+  }
+  th{
+    background-color: indigo;
+    color: aliceblue;
+  }
+
+  td{
+    background-color: aliceblue;
+    color: indigo;
+  }
+
+  h2{
+    margin-left: 5%;
+    color: indigo;
+  }
+  #edit{
+    background-color: rgb(255, 227, 68);
+    margin-left: 5%;
+  }
+  #delete{
+    background-color: rgba(255, 17, 17, 0.829);
+   margin-left: 20px;
+  }
+  #edit,#delete{
+    
+    margin-top: 10px;
+    font-size: large;
+  }
+  .info{
+    font-size: large;
+    color: indigo;
+    margin-bottom: 5px;
+    border-bottom: 1px dotted;
+  }
+  #infoBox{
+    width: 20vw;
+    margin-left: 5%;
+  }

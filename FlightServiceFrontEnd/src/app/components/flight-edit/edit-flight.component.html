@@ -1,64 +1,67 @@
+<div id="page">
 <div class="container" *ngIf="flight">
+    <div id="title">
     <h1>Edit Flight Information</h1>
-    <h2>{{flight.id}}</h2>
+    </div>
     <form [formGroup]="editFlightForm" (ngSubmit)="submit()">
         <div class="form-group">
             <label for="id">Flight ID</label>
             <input type="text" class="form-control" [(ngModel)]="flight.id" id="flightId" formControlName="id" />
-            <div *ngIf="f['id'].touched && f['id'].invalid" class="alert alert-danger">
+            <div *ngIf="f['id'].touched && f['id'].invalid" class="alert">
                 <div *ngIf="f['id'].errors f['id'].errors['required']">Flight ID is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="flightNumber">Flight Number</label>
             <input type="text" class="form-control" [(ngModel)]="flight.flightNumber" id="flightNumber" formControlName="flightNumber" />
-            <div *ngIf="f['flightNumber'].touched && f['flightNumber'].invalid" class="alert alert-danger">
+            <div *ngIf="f['flightNumber'].touched && f['flightNumber'].invalid" class="alert">
                 <div *ngIf="f['flightNumber'].errors f['flightNumber'].errors['required']">Flight Number is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="departureAirport">Departure Airport</label>
             <input type="text" class="form-control" [(ngModel)]="flight.departureAirport" id="departureAirport" formControlName="departureAirport" />
-            <div *ngIf="f['departureAirport'].touched && f['departureAirport'].invalid" class="alert alert-danger">
+            <div *ngIf="f['departureAirport'].touched && f['departureAirport'].invalid" class="alert">
                 <div *ngIf="f['departureAirport'].errors f['departureAirport'].errors['required']">Departure Airport is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="departureDateTime">Departure Date/Time</label>
             <input type="datetime-local" [(ngModel)]="flight.departureDateTime"  class="form-control" id="departureDateTime" formControlName="departureDateTime" />
-            <div *ngIf="f['departureDateTime'].touched && f['departureDateTime'].invalid" class="alert alert-danger">
+            <div *ngIf="f['departureDateTime'].touched && f['departureDateTime'].invalid" class="alert">
                 <div *ngIf="f['departureDateTime'].errors f['departureDateTime'].errors['required']">Departure Date/Time is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="arrivalAirport">Arrival Airport</label>
             <input type="text" class="form-control" [(ngModel)]="flight.arrivalAirport" id="arrivalAirport" formControlName="arrivalAirport" />
-            <div *ngIf="f['arrivalAirport'].touched && f['arrivalAirport'].invalid" class="alert alert-danger">
+            <div *ngIf="f['arrivalAirport'].touched && f['arrivalAirport'].invalid" class="alert">
                 <div *ngIf="f['arrivalAirport'].errors f['arrivalAirport'].errors['required']">Arrival Airport is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="arrivalDateTime">Arrival Date/Time</label>
             <input type="datetime-local" class="form-control" [(ngModel)]="flight.arrivalDateTime" id="arrivalDateTime" formControlName="arrivalDateTime" />
-            <div *ngIf="f['arrivalDateTime'].touched && f['arrivalDateTime'].invalid" class="alert alert-danger">
+            <div *ngIf="f['arrivalDateTime'].touched && f['arrivalDateTime'].invalid" class="alert">
                 <div *ngIf="f['arrivalDateTime'].errors f['arrivalDateTime'].errors['required']">Arrival Date/Time is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="maxCapacity">Max Capacity</label>
             <input type="text" class="form-control" [(ngModel)]="flight.maxCapacity" id="maxCapacity" formControlName="maxCapacity" />
-            <div *ngIf="f['maxCapacity'].touched && f['maxCapacity'].invalid" class="alert alert-danger">
+            <div *ngIf="f['maxCapacity'].touched && f['maxCapacity'].invalid" class="alert">
                 <div *ngIf="f['maxCapacity'].errors f['maxCapacity'].errors['required']">Max Capacity is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="seatsReserved">Seats Reserved</label>
             <input type="text" class="form-control" [(ngModel)]="flight.seatsReserved" id="seatsReserved" formControlName="seatsReserved" />
-            <div *ngIf="f['seatsReserved'].touched && f['seatsReserved'].invalid" class="alert alert-danger">
+            <div *ngIf="f['seatsReserved'].touched && f['seatsReserved'].invalid" class="alert">
                 <div *ngIf="f['seatsReserved'].errors f['seatsReserved'].errors['required']">Seats Reserved is required.</div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!editFlightForm.valid">Submit</button>
+        <button type="submit" id="submit" [disabled]="!editFlightForm.valid">Submit</button>
     
     </form>
     </div>
+</div>

@@ -1,8 +1,10 @@
+
 <h1>Create A New Reservation</h1>
 <h2>Select A Flight and Passenger from the lists below.</h2>
+<div id="optionsContainer">
+<div id="flightContainer">
 <h3>Available Flights</h3>
-<ul class="flights">
-  <table *ngFor="let flight of flights">
+  <table >
     <thead>
       <th>Flight ID</th>
       <th>Flight Number</th>
@@ -13,24 +15,25 @@
       <th>Max Capacity</th>
       <th>Seats Reserved</th>
     </thead>
-    <tbody>
+    <tbody *ngFor="let flight of flights">
       <tr>
-        <td>
+        <td class="center">
           <button [class.selected]="flight === selectedFlight"(click)="selectFlight(flight)">{{flight.id}}</button>
   </td>
   <td>{{flight.flightNumber}}</td>
   <td>{{flight.departureAirport}}</td>
-  <td>{{flight.departureDateTime}}</td>
+  <td>{{flight.departureDateTime| date:'short'}}</td>
   <td>{{flight.arrivalAirport}}</td>
-  <td>{{flight.arrivalDateTime}}</td>
+  <td>{{flight.arrivalDateTime| date:'short'}}</td>
   <td>{{flight.maxCapacity}}</td>
   <td>{{flight.seatsReserved}}</td>
   </tr>
   </tbody>
   </table>
+</div>
+<div id="passengerContainer">
 <h3>Passengers</h3>
-  <ul class="passengers">
-    <table *ngFor="let passenger of passengers">
+    <table >
       <thead>
         <th>Passenger ID</th>
         <th>First and Middle Name</th>
@@ -38,11 +41,10 @@
         <th>Date of Birth</th>
         <th>Profession</th>
         <th>Email</th>
-        <th></th>
       </thead>
-      <tbody>
+      <tbody *ngFor="let passenger of passengers">
         <tr>
-          <td>
+          <td class="center">
             <button [class.selected]="passenger === selectedPassenger"(click)="selectPassenger(passenger)">{{passenger.id}}</button>
     </td>
     <td>{{passenger.firstMidName}}</td>
@@ -50,10 +52,10 @@
     <td>{{passenger.dob| date:'shortDate'}}</td>
     <td>{{passenger.job}}</td>
     <td>{{passenger.email}}</td>
-    <td>
-
-    </td>
     </tr>
     </tbody>
     </table>
-    <button (click)="createReservation()">Submit</button>
+  </div>
+</div>
+    <button id="submit" (click)="createReservation()">Submit</button>
+  

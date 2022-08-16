@@ -2,3 +2,45 @@ button.selected {
     background-color: black;
     color: white;
   }
+  table, th, td {
+    border: 1px solid;
+    
+  }
+
+  table {
+    width: 90%;
+    margin-left: 5%;
+    
+  }
+  th{
+    background-color: indigo;
+    color: aliceblue;
+  }
+
+  td{
+    background-color: aliceblue;
+    color: indigo;
+  }
+
+ 
+  #add{
+    margin-left: 5%;
+    margin-bottom: 5px;
+    width: 250px;
+    background-color:rgb(63, 252, 0);
+    font-size: large;
+  }
+  h1,h2,h3{
+    margin-left: 5%;
+    color: indigo;
+  }
+  .center{
+    text-align: center;
+  }
+  #submit{
+    margin-left: 5%;
+    margin-top: 10px;
+    background-color: indigo;
+    color: aliceblue;
+    font-size: large;
+  }
