@@ -1,0 +1,37 @@
+.info{
+    font-size: large;
+    color: indigo;
+    margin: 10px;
+    border-bottom: 1px dotted;
+  }
+
+#details{
+    display: flex;
+    margin-left: 5%;
+}
+h1{
+    margin-left: 5%;
+    color: indigo;
+  }
+button{
+    background-color: indigo;
+    color: aliceblue;
+    font-size: large;
+}
+#flight, #passenger{
+    border: 2px solid;
+    background-color: aliceblue;
+    width: 40vw;
+}
+#flight{
+    margin-right: 5%;
+}
+
+.title{
+    background-color: indigo;
+    color: aliceblue;
+    width:stretch;
+    display: grid;
+    justify-items: center;
+    border-bottom: 2px solid black;
+}

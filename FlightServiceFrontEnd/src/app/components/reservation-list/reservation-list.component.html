@@ -11,8 +11,8 @@
       <th>Arrival Date/Time</th>
     </thead>
     <tbody *ngFor="let reservation of reservations">
-      <tr>
-        <td>{{reservation.id}}</td>
+      <tr class="centerColumns">
+        <td><button id="idButton" routerLink="/reservations/{{reservation.id}}">{{reservation.id}}</button></td>
         <td>{{reservation.firstMidName}} {{reservation.lastName}}</td>
         <td>{{reservation.flightNumber}}</td>
         <td>{{reservation.departureAirport}}</td>

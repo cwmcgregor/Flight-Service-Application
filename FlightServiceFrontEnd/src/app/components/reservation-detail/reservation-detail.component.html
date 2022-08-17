@@ -1,21 +1,27 @@
-<h1 *ngIf="reservation"> Reservation Details {{reservation.flightId}}{{reservation.passengerId}}</h1>
-<div *ngIf="flight">
+<h1 *ngIf="reservation"> Reservation {{id}} Details</h1>
+<div id="details">
+<div id="flight" *ngIf="flight">
+    <div class="title">
 <h2 >Flight Information</h2>
-    <div>Flight ID: {{flight.id}}</div>
-    <div>Flight Number: {{flight.flightNumber}}</div>
-    <div>Departure Airport: {{flight.departureAirport}}</div>
-    <div>Departure Date/Time: {{flight.departureDateTime| date:'short'}}</div>
-    <div>Arrival Airport: {{flight.arrivalAirport}}</div>
-    <div>Arrival Date/Time: {{flight.arrivalDateTime| date:'short'}}</div>
-    <div>Max Capacity: {{flight.maxCapacity}}</div>
-    <div>Seats Booked: {{flight.seatsReserved}}</div>
 </div>
-<div *ngIf="passenger">
+    <div class="info">Flight ID: <button routerLink="/flights/{{flight.id}}">{{flight.id}}</button></div>
+    <div class="info">Flight Number: {{flight.flightNumber}}</div>
+    <div class="info">Departure Airport: {{flight.departureAirport}}</div>
+    <div class="info">Departure Date/Time: {{flight.departureDateTime| date:'short'}}</div>
+    <div class="info">Arrival Airport: {{flight.arrivalAirport}}</div>
+    <div class="info">Arrival Date/Time: {{flight.arrivalDateTime| date:'short'}}</div>
+    <div class="info">Max Capacity: {{flight.maxCapacity}}</div>
+    <div class="info">Seats Booked: {{flight.seatsReserved}}</div>
+</div>
+<div id="passenger" *ngIf="passenger">
+    <div class="title">
     <h2>Passenger Information</h2>
-     <div>Passenger ID: {{passenger.id}}</div>
-     <div>First and Middle Name: {{passenger.firstMidName}}</div>
-     <div>Last Name: {{passenger.lastName}}</div>
-     <div>Date of Birth: {{passenger.dob| date:'shortDate'}}</div>
-     <div>Profession: {{passenger.job}}</div>
-     <div>Email: {{passenger.email}}</div>
+</div>
+     <div class="info">Passenger ID: <button routerLink="/passengers/{{passenger.id}}">{{passenger.id}}</button></div>
+     <div class="info">First and Middle Name: {{passenger.firstMidName}}</div>
+     <div class="info">Last Name: {{passenger.lastName}}</div>
+     <div class="info">Date of Birth: {{passenger.dob| date:'shortDate'}}</div>
+     <div class="info">Profession: {{passenger.job}}</div>
+     <div class="info">Email: {{passenger.email}}</div>
    </div>
+</div>
