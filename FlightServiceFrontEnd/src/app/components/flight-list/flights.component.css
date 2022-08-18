@@ -46,3 +46,19 @@ table, th, td {
     margin-left: 5%;
     color: indigo;
   }
+  input{
+    width: 94%;
+  }
+  #actions{
+    display: flex;
+  }
+  #search{
+    width: 60px;
+    background-color: indigo;
+    color: aliceblue;
+  }
+  #reset{
+    width: 60px;
+    background-color: white;
+    color: indigo;
+  }

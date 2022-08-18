@@ -43,27 +43,6 @@ namespace FlightServiceBackEnd.Controllers
             return await _context.Flights.Where(f => f.seatsReserved < f.MaxCapacity).Where(f => f.DepartureDateTime > DateTime.Now).ToListAsync();
         }
 
-        // GET: api/Flights/Upcoming
-        [HttpGet("Upcoming")]
-        public async Task<ActionResult<IEnumerable<Flight>>> GetUpcomingFlights()
-        {
-            if (_context.Flights == null)
-            {
-                return NotFound();
-            }
-            return await _context.Flights.Where(f => f.DepartureDateTime > DateTime.Now).OrderBy(f => f.DepartureDateTime).ToListAsync();
-        }
-
-        // GET: api/Flights/Past
-        [HttpGet("Past")]
-        public async Task<ActionResult<IEnumerable<Flight>>> GetPastFlights()
-        {
-            if (_context.Flights == null)
-            {
-                return NotFound();
-            }
-            return await _context.Flights.Where(f => f.DepartureDateTime < DateTime.Now).OrderBy(f => f.DepartureDateTime).ToListAsync();
-        }
 
         // GET: api/Flights/5/Reservations
         [HttpGet("{id}/Reservations")]

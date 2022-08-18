@@ -34,6 +34,7 @@ td{
 
 .centerColumns{
   text-align: center;
+  
 }
 #add{
   margin-left: 5%;
@@ -44,5 +45,22 @@ td{
 }
 h1{
   margin-left: 5%;
+  color: indigo;
+}
+input{
+  width: 94%;
+}
+.actions{
+  display: flex;
+  justify-content: center;
+}
+#search{
+  width: 60px;
+  background-color: indigo;
+  color: aliceblue;
+}
+#reset{
+  width: 60px;
+  background-color: white;
   color: indigo;
 }

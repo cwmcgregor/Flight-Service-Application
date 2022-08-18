@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FlightServiceFrontEnd';
+  title = 'Fair Fare Air';
   time= new Date();
   constructor() {
     setInterval( ()=> this.time = new Date(), 1000);

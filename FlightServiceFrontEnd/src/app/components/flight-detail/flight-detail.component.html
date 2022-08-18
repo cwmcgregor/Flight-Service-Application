@@ -5,11 +5,11 @@
     <div class="info">Flight ID: {{flight.id}}</div>
     <div class="info">Flight Number: {{flight.flightNumber}}</div>
     <div class="info">Departure Airport: {{flight.departureAirport}}</div>
-    <div class="info">Departure Date/Time: {{flight.departureDateTime| date:'short'}}</div>
+    <div class="info">Departure Date/Time: {{flight.departureDateTime | date:'short'}}</div>
     <div class="info">Arrival Airport: {{flight.arrivalAirport}}</div>
     <div class="info">Arrival Date/Time: {{flight.arrivalDateTime| date:'short'}}</div>
     <div class="info">Max Capacity: {{flight.maxCapacity}}</div>
-    <div class="info">Seats Booked: {{flight.seatsReserved}}</div>
+    <div class="info">Seats Reserved: {{flight.seatsReserved}}</div>
   </div>
     <a routerLink="/edit/flight/{{flight.id}}"><button id="edit">Edit Flight Info</button></a>
     <button (click)="deleteFlight()" id="delete">Delete Flight</button>
@@ -26,8 +26,8 @@
         <th>Email</th>
       </thead>
       <tbody *ngFor="let passenger of passengers">
-        <tr >
-          <td>{{passenger.reservationId}}</td>
+        <tr id="center">
+          <td><a routerLink="/reservations/{{passenger.reservationId}}"><button id="idButton">{{passenger.reservationId}}</button></a></td>
           <td>{{passenger.firstMidName}}</td>
           <td>{{passenger.lastName}}</td>
           <td>{{passenger.dob| date:'shortDate'}}</td>

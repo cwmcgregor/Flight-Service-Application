@@ -38,3 +38,25 @@ table, th, td {
   .centerColumns{
     text-align: center;
   }
+  #actions{
+    display: flex;
+  }
+  #search{
+    width: 60px;
+    background-color: indigo;
+    color: aliceblue;
+  }
+  #reset{
+    width: 60px;
+    background-color: white;
+    color: indigo;
+  }
+  #cancel{
+    background-color: rgba(255, 17, 17, 0.829);
+    color: white;
+    width: 120px;
+  }
+
+  input{
+    width: 94%;
+  }

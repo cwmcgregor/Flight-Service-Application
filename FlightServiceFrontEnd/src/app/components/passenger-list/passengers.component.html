@@ -10,8 +10,17 @@
       <th>Email</th>
       <th></th>
     </thead>
-    <tbody *ngFor="let passenger of passengers">
+    <tbody >
       <tr>
+        <td><input type="text" [(ngModel)]="filter.id"></td>
+        <td><input type="text" [(ngModel)]="filter.firstMidName"></td>
+        <td><input type="text" [(ngModel)]="filter.lastName"></td>
+        <td><input type="date" [(ngModel)]="filter.dob"></td>
+        <td><input type="text" [(ngModel)]="filter.job"></td>
+        <td><input type="text" [(ngModel)]="filter.email"></td>
+        <td><div class="actions"><button id="search" (click)="filterPassengers();">Search</button><button id="reset" (click)="resetPassengers();">Reset</button></div></td>
+      </tr>
+      <tr *ngFor="let passenger of filteredPassengers">
         <td class="centerColumns">
           <a routerLink="/passengers/{{passenger.id}}"><button class="idButton">{{passenger.id}}</button></a>
   </td>
@@ -21,8 +30,10 @@
   <td>{{passenger.job}}</td>
   <td>{{passenger.email}}</td>
   <td class="centerColumns">
+    <div class="actions">
     <a routerLink="/edit/passenger/{{passenger.id}}"><button id="edit">Edit</button></a>
     <button (click)="deletePassenger(passenger.id)" id="delete">Delete</button>
+    </div>
   </td>
   </tr>
   </tbody>

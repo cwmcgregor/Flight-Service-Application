@@ -1,6 +1,9 @@
 button.selected {
-    background-color: black;
-    color: white;
+    background-color: indigo;
+    color: aliceblue;
+  }
+  button{
+    background-color: white;
   }
   table, th, td {
     border: 1px solid;
@@ -36,6 +39,7 @@ button.selected {
   }
   .center{
     text-align: center;
+    
   }
   #submit{
     margin-left: 5%;
@@ -43,4 +47,26 @@ button.selected {
     background-color: indigo;
     color: aliceblue;
     font-size: large;
+  }
+  .actions{
+    display: flex;
+    justify-content: center;
+  }
+
+  input{
+  width: 94%;
+  }
+  #search{
+    width: 60px;
+    background-color: indigo;
+    color: aliceblue;
+  }
+  #reset{
+    width: 60px;
+    background-color: white;
+    color: indigo;
+  }
+  .detailsButton{
+    background-color: indigo;
+    color: aliceblue;
   }

@@ -1,6 +1,6 @@
 <h1>All Flights</h1>
 <a routerLink='/add/flight'><button id="add">+ Add A New Flight</button></a>
-  <table >
+ <table >
     <thead>
       <th>Flight ID</th>
       <th>Flight Number</th>
@@ -12,21 +12,34 @@
       <th>Seats Reserved</th>
       <th></th>
     </thead>
-    <tbody *ngFor="let flight of flights">
+    <tbody >
       <tr>
+        <td><input type="text" [(ngModel)]="filter.id"></td>
+        <td><input type="text" [(ngModel)]="filter.flightNumber"></td>
+        <td><input type="text" [(ngModel)]="filter.departureAirport"></td>
+        <td><input type="date" [(ngModel)]="filter.departureDateTime"></td>
+        <td><input type="text" [(ngModel)]="filter.arrivalAirport"></td>
+        <td><input type="date" [(ngModel)]="filter.arrivalDateTime"></td>
+        <td><input type="number" [(ngModel)]="filter.maxCapacity"></td>
+        <td><input type="number" [(ngModel)]="filter.seatsReserved"></td>
+        <td><button id="search" (click)="filterFlights();">Search</button><button id="reset" (click)="resetFlights();">Reset</button></td>
+      </tr>
+      <tr *ngFor="let flight of filteredFlights">
         <td class="centerColumns">
           <a routerLink="/flights/{{flight.id}}"><button class="idButton">{{flight.id}}</button></a>
   </td>
   <td>{{flight.flightNumber}}</td>
   <td>{{flight.departureAirport}}</td>
-  <td>{{flight.departureDateTime | date:'short'}}</td>
+  <td>{{flight.departureDateTime | date:"short"}}</td>
   <td>{{flight.arrivalAirport}}</td>
-  <td>{{flight.arrivalDateTime | date:'short'}}</td>
+  <td>{{flight.arrivalDateTime | date: "short"}}</td>
   <td>{{flight.maxCapacity}}</td>
   <td>{{flight.seatsReserved}}</td>
   <td class="centerColumns">
+    <div id="actions">
     <a routerLink="/edit/flight/{{flight.id}}"><button class="options" id="edit">Edit</button></a>
     <button (click)="deleteFlight(flight.id)" class="options" id="delete">Delete</button>
+  </div>
   </td>
   </tr>
   </tbody>

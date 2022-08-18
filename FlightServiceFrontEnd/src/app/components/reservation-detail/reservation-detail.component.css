@@ -35,3 +35,14 @@ button{
     justify-items: center;
     border-bottom: 2px solid black;
 }
+#header{
+    display: flex;
+}
+#cancel{
+    background-color: rgba(255, 17, 17, 0.829);
+    height: max-content;
+    font-size: large;
+    align-self: center;
+    margin-left: 5%;
+    margin-top: 10px;
+}

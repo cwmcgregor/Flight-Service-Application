@@ -4,32 +4,46 @@
 <div id="optionsContainer">
 <div id="flightContainer">
 <h3>Available Flights</h3>
-  <table >
-    <thead>
-      <th>Flight ID</th>
-      <th>Flight Number</th>
-      <th>Departure Airport</th>
-      <th>Departure Date/Time</th>
-      <th>Arrival Airport</th>
-      <th>Arrival Date/Time</th>
-      <th>Max Capacity</th>
-      <th>Seats Reserved</th>
-    </thead>
-    <tbody *ngFor="let flight of flights">
-      <tr>
-        <td class="center">
-          <button [class.selected]="flight === selectedFlight"(click)="selectFlight(flight)">{{flight.id}}</button>
-  </td>
-  <td>{{flight.flightNumber}}</td>
-  <td>{{flight.departureAirport}}</td>
-  <td>{{flight.departureDateTime| date:'short'}}</td>
-  <td>{{flight.arrivalAirport}}</td>
-  <td>{{flight.arrivalDateTime| date:'short'}}</td>
-  <td>{{flight.maxCapacity}}</td>
-  <td>{{flight.seatsReserved}}</td>
-  </tr>
-  </tbody>
-  </table>
+<table >
+  <thead>
+    <th>Flight ID</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Date/Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Date/Time</th>
+    <th>Max Capacity</th>
+    <th>Seats Reserved</th>
+    <th></th>
+  </thead>
+  <tbody >
+    <tr>
+      <td><input type="text" [(ngModel)]="flightFilter.id"></td>
+      <td><input type="text" [(ngModel)]="flightFilter.flightNumber"></td>
+      <td><input type="text" [(ngModel)]="flightFilter.departureAirport"></td>
+      <td><input type="date" [(ngModel)]="flightFilter.departureDateTime"></td>
+      <td><input type="text" [(ngModel)]="flightFilter.arrivalAirport"></td>
+      <td><input type="date" [(ngModel)]="flightFilter.arrivalDateTime"></td>
+      <td><input type="number" [(ngModel)]="flightFilter.maxCapacity"></td>
+      <td><input type="number" [(ngModel)]="flightFilter.seatsReserved"></td>
+      <td><div class="actions"><button id="search" (click)="filterFlights();">Search</button><button id="reset" (click)="resetFlights();">Reset</button></div></td>
+    </tr>
+    <tr *ngFor="let flight of filteredFlights">
+      <td class="center">
+        <button [class.selected]="flight === selectedFlight" (click)="selectFlight(flight);" class="idButton">{{flight.id}}</button>
+</td>
+<td>{{flight.flightNumber}}</td>
+<td>{{flight.departureAirport}}</td>
+<td>{{flight.departureDateTime | date:"short"}}</td>
+<td>{{flight.arrivalAirport}}</td>
+<td>{{flight.arrivalDateTime | date: "short"}}</td>
+<td>{{flight.maxCapacity}}</td>
+<td>{{flight.seatsReserved}}</td>
+<td class="center"><a routerLink="/flights/{{flight.id}}"><button class="detailsButton">View Details</button></a></td>
+</tr>
+</tbody>
+</table>
+
 </div>
 <div id="passengerContainer">
 <h3>Passengers</h3>
@@ -41,9 +55,19 @@
         <th>Date of Birth</th>
         <th>Profession</th>
         <th>Email</th>
+        <th></th>
       </thead>
-      <tbody *ngFor="let passenger of passengers">
+      <tbody >
         <tr>
+          <td><input type="text" [(ngModel)]="passengerFilter.id"></td>
+          <td><input type="text" [(ngModel)]="passengerFilter.firstMidName"></td>
+          <td><input type="text" [(ngModel)]="passengerFilter.lastName"></td>
+          <td><input type="date" [(ngModel)]="passengerFilter.dob"></td>
+          <td><input type="text" [(ngModel)]="passengerFilter.job"></td>
+          <td><input type="text" [(ngModel)]="passengerFilter.email"></td>
+          <td class="center"><div class="actions"><button id="search" (click)="filterPassengers();">Search</button><button id="reset" (click)="resetPassengers();">Reset</button></div></td>
+        </tr>
+        <tr *ngFor="let passenger of filteredPassengers">
           <td class="center">
             <button [class.selected]="passenger === selectedPassenger"(click)="selectPassenger(passenger)">{{passenger.id}}</button>
     </td>
@@ -52,6 +76,7 @@
     <td>{{passenger.dob| date:'shortDate'}}</td>
     <td>{{passenger.job}}</td>
     <td>{{passenger.email}}</td>
+    <td class="center"><a routerLink="/passengers/{{passenger.id}}"><button class="detailsButton">View Details</button></a></td>
     </tr>
     </tbody>
     </table>

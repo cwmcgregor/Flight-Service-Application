@@ -35,4 +35,22 @@ id?:number;
     });
   }
 
+  deleteReservation():void{
+    this.id=Number(this.route.snapshot.paramMap.get('id'));
+    this.reservationService.deleteReservation(this.id).subscribe();
+    if(this.flight){
+    let updatedFlight=this.removeSeatReservation(this.flight);
+    this.flightService.updateFlight(updatedFlight).subscribe();
+    this.router.navigate(['/reservations']).then(() => {
+      location.reload();
+    });
+    }
+  }
+  removeSeatReservation(flight:Flight):Flight{
+    let updatedFlight:Flight=flight;
+    updatedFlight.seatsReserved-=1;
+    console.log(updatedFlight.seatsReserved)
+    return updatedFlight;
+   }
+
 }

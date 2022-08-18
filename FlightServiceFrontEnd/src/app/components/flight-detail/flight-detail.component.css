@@ -45,3 +45,11 @@ table, th, td {
     width: 20vw;
     margin-left: 5%;
   }
+  #idButton{
+    color: aliceblue;
+    background-color: indigo;
+    border: 1px solid;
+  }
+  #center{
+    text-align: center;
+  }

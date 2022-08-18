@@ -1,8 +1,8 @@
-export interface Passenger {
-    id: number;
+export interface PassengerFilter {
+    id: string;
     firstMidName: string;
     lastName:string;
-    dob: Date;
+    dob: string;
     email:string;
     job:string;
    

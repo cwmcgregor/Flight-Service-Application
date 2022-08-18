@@ -24,8 +24,8 @@
         <th>Arrival Date/Time</th>
       </thead>
       <tbody *ngFor="let flight of flights">
-        <tr >
-          <td>{{flight.reservationID}}</td>
+        <tr id="center">
+          <td><a routerLink="/reservations/{{flight.reservationID}}"><button id="idButton">{{flight.reservationID}}</button></a></td>
           <td>{{flight.flightNumber}}</td>
           <td>{{flight.departureAirport}}</td>
           <td>{{flight.departureDateTime| date:'short'}}</td>

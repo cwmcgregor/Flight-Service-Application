@@ -1,4 +1,7 @@
-<h1 *ngIf="reservation"> Reservation {{id}} Details</h1>
+<div id="header">
+    <h1 *ngIf="reservation"> Reservation {{id}} Details</h1>
+   
+</div>
 <div id="details">
 <div id="flight" *ngIf="flight">
     <div class="title">
@@ -25,3 +28,4 @@
      <div class="info">Email: {{passenger.email}}</div>
    </div>
 </div>
+<button id="cancel" (click)="deleteReservation();">Cancel Reservation</button>
