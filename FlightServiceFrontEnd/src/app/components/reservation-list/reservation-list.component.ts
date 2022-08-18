@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Reservation } from 'src/app/models/reservation';
@@ -14,18 +14,22 @@ import { Flight } from 'src/app/models/flight';
   templateUrl: './reservation-list.component.html',
   styleUrls: ['./reservation-list.component.css']
 })
-export class ReservationListComponent implements OnInit {
+export class ReservationListComponent implements OnInit, OnChanges {
 
   constructor(private reservationService:ReservationService, private router:Router, private flightService:FlightService) { }
 
   ngOnInit(): void {
     this.getAllReservations();
   }
+  ngOnChanges(changes:SimpleChanges):void{
+    console.log(changes);
+    this.filterReservations();
+  }
 
   reservations:ReservationList[]=[];
   filteredReservations:ReservationList[]=[];
   selectedReservation?: Reservation;
-  filter:ReservationListFilter={
+  @Input()filter:ReservationListFilter={
     id: "",
     firstMidName: "",
     lastName: "",

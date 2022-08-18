@@ -43,7 +43,9 @@
         <label for="maxCapacity">Max Capacity</label>
         <input type="number" class="form-control" id="maxCapacity" formControlName="maxCapacity" />
         <div *ngIf="f['maxCapacity'].touched && f['maxCapacity'].invalid" class="alert">
+            <div *ngIf="f['maxCapacity'].errors f['maxCapacity'].errors['min']">Max Capacity must be at least 1.</div>
             <div *ngIf="f['maxCapacity'].errors f['maxCapacity'].errors['required']">Max Capacity is required.</div>
+            
         </div>
     </div>
     

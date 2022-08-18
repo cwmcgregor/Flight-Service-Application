@@ -72,8 +72,8 @@ export class FlightsComponent implements OnInit {
         String(flight.arrivalAirport).includes(this.filter.arrivalAirport))
       }
       if(this.filter.arrivalDateTime!=""){
-        this.filteredFlights=this.filteredFlights.filter((flight)=>{
-        String(flight.arrivalDateTime).includes(this.filter.arrivalDateTime)})
+        this.filteredFlights=this.filteredFlights.filter((flight)=>
+        String(flight.arrivalDateTime).includes(this.filter.arrivalDateTime))
       }
       if(this.filter.maxCapacity!=""){
         this.filteredFlights=this.filteredFlights.filter((flight)=>

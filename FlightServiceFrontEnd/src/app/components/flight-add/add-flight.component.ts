@@ -22,7 +22,7 @@ export class AddFlightComponent implements OnInit {
       departureDateTime: new FormControl('',Validators.required),
       arrivalAirport: new FormControl('',Validators.required),
       arrivalDateTime: new FormControl('',Validators.required),
-      maxCapacity: new FormControl('',Validators.required),
+      maxCapacity: new FormControl('',[Validators.required,Validators.min(1)])
 
     });
   }

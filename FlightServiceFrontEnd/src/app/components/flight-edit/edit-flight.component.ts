@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -25,13 +25,15 @@ export class EditFlightComponent implements OnInit {
     this.editFlightForm=new FormGroup({
       id: new FormControl('',Validators.required),
       flightNumber: new FormControl('',Validators.required),
-      departureAirport: new FormControl('',Validators.required),
+      departureAirport: new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]),
       departureDateTime: new FormControl('',Validators.required),
-      arrivalAirport: new FormControl('',Validators.required),
+      arrivalAirport: new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]),
       arrivalDateTime: new FormControl('',Validators.required),
-      maxCapacity: new FormControl('',Validators.required),
-      seatsReserved: new FormControl('',Validators.required)
+      maxCapacity: new FormControl('',[Validators.required,Validators.min(1)]),
+      seatsReserved: new FormControl('',[Validators.required,Validators.min(0)])
     });
+
+    this.editFlightForm.get('seatsReserved')?.setValidators(this.greaterThan('maxCapacity'));
   }
 
   get f(){return this.editFlightForm.controls}
@@ -48,6 +50,15 @@ export class EditFlightComponent implements OnInit {
       console.log("Flight modified");
       this.router.navigateByUrl('/flights')
     });
+  }
+
+  greaterThan(field:string):ValidatorFn{
+    return (control:AbstractControl): {[key:string]:any}=>{
+      const group=control.parent;
+      const fieldToCompare=group?.get(field);
+      const isLessThan=Number(fieldToCompare?.value)<Number(control.value);
+      return isLessThan ? control.value : null;
+    }
   }
 
 }

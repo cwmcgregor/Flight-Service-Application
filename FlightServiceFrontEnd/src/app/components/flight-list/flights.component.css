@@ -49,8 +49,9 @@ table, th, td {
   input{
     width: 94%;
   }
-  #actions{
+  .actions{
     display: flex;
+    justify-content: center;
   }
   #search{
     width: 60px;

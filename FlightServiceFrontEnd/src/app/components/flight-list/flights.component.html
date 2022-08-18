@@ -13,7 +13,7 @@
       <th></th>
     </thead>
     <tbody >
-      <tr>
+      <tr class="centerColumns">
         <td><input type="text" [(ngModel)]="filter.id"></td>
         <td><input type="text" [(ngModel)]="filter.flightNumber"></td>
         <td><input type="text" [(ngModel)]="filter.departureAirport"></td>
@@ -22,7 +22,7 @@
         <td><input type="date" [(ngModel)]="filter.arrivalDateTime"></td>
         <td><input type="number" [(ngModel)]="filter.maxCapacity"></td>
         <td><input type="number" [(ngModel)]="filter.seatsReserved"></td>
-        <td><button id="search" (click)="filterFlights();">Search</button><button id="reset" (click)="resetFlights();">Reset</button></td>
+        <td><div class="actions"><button id="search" (click)="filterFlights();">Search</button><button id="reset" (click)="resetFlights();">Reset</button></div></td>
       </tr>
       <tr *ngFor="let flight of filteredFlights">
         <td class="centerColumns">
@@ -36,7 +36,7 @@
   <td>{{flight.maxCapacity}}</td>
   <td>{{flight.seatsReserved}}</td>
   <td class="centerColumns">
-    <div id="actions">
+    <div class="actions">
     <a routerLink="/edit/flight/{{flight.id}}"><button class="options" id="edit">Edit</button></a>
     <button (click)="deleteFlight(flight.id)" class="options" id="delete">Delete</button>
   </div>
