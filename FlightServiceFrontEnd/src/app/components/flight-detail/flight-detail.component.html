@@ -11,8 +11,49 @@
     <div class="info">Max Capacity: {{flight.maxCapacity}}</div>
     <div class="info">Seats Reserved: {{flight.seatsReserved}}</div>
   </div>
+  <button [class.available]="available" class="soldOut" (click)="revealForm();">{{ available == true ? 'Book Now' : 'Sold Out' }}</button>
     <a routerLink="/edit/flight/{{flight.id}}"><button id="edit">Edit Flight Info</button></a>
     <button (click)="deleteFlight()" id="delete">Delete Flight</button>
+  </div>
+  <div *ngIf="showForm">
+    <div id="passengerContainer">
+      <h2>Select a Passenger</h2>
+          <table >
+            <thead>
+              <th>Passenger ID</th>
+              <th>First and Middle Name</th>
+              <th>Last Name</th>
+              <th>Date of Birth</th>
+              <th>Profession</th>
+              <th>Email</th>
+              <th></th>
+            </thead>
+            <tbody >
+              <tr class="center">
+                <td><input type="text" [(ngModel)]="passengerFilter.id"></td>
+                <td><input type="text" [(ngModel)]="passengerFilter.firstMidName"></td>
+                <td><input type="text" [(ngModel)]="passengerFilter.lastName"></td>
+                <td><input type="date" [(ngModel)]="passengerFilter.dob"></td>
+                <td><input type="text" [(ngModel)]="passengerFilter.job"></td>
+                <td><input type="text" [(ngModel)]="passengerFilter.email"></td>
+                <td class="center"><div class="actions"><button id="search" (click)="filterPassengers();">Search</button><button id="reset" (click)="resetPassengers();">Reset</button></div></td>
+              </tr>
+              <tr *ngFor="let passenger of filteredPassengers">
+                <td class="center">
+                  <button [class.selected]="passenger === selectedPassenger"(click)="selectPassenger(passenger)">{{passenger.id}}</button>
+          </td>
+          <td>{{passenger.firstMidName}}</td>
+          <td>{{passenger.lastName}}</td>
+          <td>{{passenger.dob| date:'shortDate'}}</td>
+          <td>{{passenger.job}}</td>
+          <td>{{passenger.email}}</td>
+          <td class="center"><a routerLink="/passengers/{{passenger.id}}"><button class="detailsButton">View Details</button></a></td>
+          </tr>
+          </tbody>
+          </table>
+        </div>
+      
+          <button id="submit" (click)="createReservation()">Submit</button>
   </div>
 <h2>Current Reservations</h2>
   <div *ngIf="passengers">
@@ -25,7 +66,7 @@
         <th>Profession</th>
         <th>Email</th>
       </thead>
-      <tbody *ngFor="let passenger of passengers">
+      <tbody *ngFor="let passenger of reservations">
         <tr id="center">
           <td><a routerLink="/reservations/{{passenger.reservationId}}"><button id="idButton">{{passenger.reservationId}}</button></a></td>
           <td>{{passenger.firstMidName}}</td>

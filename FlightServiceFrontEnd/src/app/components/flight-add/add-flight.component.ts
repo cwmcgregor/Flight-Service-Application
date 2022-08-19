@@ -18,9 +18,9 @@ export class AddFlightComponent implements OnInit {
   ngOnInit(): void {
     this.addFlightForm=new FormGroup({
       flightNumber: new FormControl('',Validators.required),
-      departureAirport: new FormControl('',Validators.required),
+      departureAirport: new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]),
       departureDateTime: new FormControl('',Validators.required),
-      arrivalAirport: new FormControl('',Validators.required),
+      arrivalAirport: new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]),
       arrivalDateTime: new FormControl('',Validators.required),
       maxCapacity: new FormControl('',[Validators.required,Validators.min(1)])
 

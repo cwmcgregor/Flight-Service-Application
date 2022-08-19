@@ -24,7 +24,7 @@ table, th, td {
   }
   #edit{
     background-color: rgb(255, 227, 68);
-    margin-left: 5%;
+    margin-left: 20px;
   }
   #delete{
     background-color: rgba(255, 17, 17, 0.829);
@@ -52,4 +52,64 @@ table, th, td {
   }
   #center{
     text-align: center;
+  }
+  button.selected {
+    background-color: indigo;
+    color: aliceblue;
+  }
+  h1,h2,h3{
+    margin-left: 5%;
+    color: indigo;
+  }
+  .center{
+    text-align: center;
+    
+  }
+  .available{
+    margin-left: 5%;
+    margin-top: 10px;
+    background-color: indigo;
+    color: aliceblue;
+    font-size: large;
+  }
+  .soldOut{
+    margin-left: 5%;
+    margin-top: 10px;
+    background-color: gray;
+    color: black;
+    font-size: large;
+  }
+  .actions{
+    display: flex;
+    justify-content: center;
+  }
+
+  input{
+  width: 94%;
+  }
+  #search{
+    width: 60px;
+    background-color: indigo;
+    color: aliceblue;
+  }
+  #reset{
+    width: 60px;
+    background-color: white;
+    color: indigo;
+  }
+  .detailsButton{
+    background-color: indigo;
+    color: aliceblue;
+  }
+  button{
+    background-color: white;
+  }
+  .available, #submit{
+    background-color: indigo;
+    color: aliceblue;
+    margin-left: 5%;
+    font-size: large;
+  }
+  #submit{
+    margin-top: 10px;
   }
